@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-body" style="padding: 15px 0;">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-body">
     <div class="container">
         <a class="navbar-brand" href="#">
             <img src="https://getbootstrap.com//docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="30"
