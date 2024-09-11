@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Blog extends Model
 {
@@ -14,12 +15,12 @@ class Blog extends Model
     protected $fillable = [
         'title',
         'slug',
-        'author',
-        'release',
-        'body'
+        'body',
+        'author_id',
     ];
 
-    protected $casts = [
-        'release' => 'datetime',
-    ];
+    public function users(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'author_id');
+    }
 }

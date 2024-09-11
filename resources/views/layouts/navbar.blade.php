@@ -14,7 +14,7 @@
                     <a class="nav-link {{ $title == 'Home' ? 'active' : '' }}" href="{{ route('home') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ $title == 'Blog' ? 'active' : '' }}" href="{{ route('blog') }}">Blog</a>
+                    <a class="nav-link {{ Str::startsWith($title, 'Blog') ? 'active' : '' }}" href="{{ route('blog') }}">Blog</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ $title == 'About' ? 'active' : '' }}" href="{{ route('about') }}">About</a>

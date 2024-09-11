@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -21,9 +22,8 @@ class BlogFactory extends Factory
         return [
             'title' => $title,
             'slug' => Str::slug($title),
-            'author' => fake()->name(),
-            'release' => now(),
             'body' => fake()->paragraphs(5, true),
+            'author_id' => User::inRandomOrder()->first()->id,
         ];
     }
 }
