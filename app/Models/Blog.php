@@ -17,10 +17,16 @@ class Blog extends Model
         'slug',
         'body',
         'author_id',
+        'criteria_id'
     ];
 
     public function users(): BelongsTo
     {
         return $this->belongsTo(User::class, 'author_id');
+    }
+
+    public function criterias(): BelongsTo
+    {
+        return $this->belongsTo(Criteria::class, 'criteria_id');
     }
 }

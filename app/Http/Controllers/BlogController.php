@@ -3,15 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Criteria;
 use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
 
 class BlogController extends Controller
 {
     public function index()
     {
-        $blogs = Blog::with('users')->get();
+        $blogs = Blog::with('users', 'criterias')->get();
 
         return view('blog.index', [
             'title' => 'Blog',
@@ -36,6 +35,14 @@ class BlogController extends Controller
         return view('blog.index', [
             'title' => 'Blog by ' . $user->name,
             'blogs' => $user->blogs
+        ]);
+    }
+
+    public function filterCriteria(Criteria $criteria)
+    {
+        return view('blog.index', [
+            'title' => 'Blog in ' .$criteria->criteria,
+            'blogs' => $criteria->blogs
         ]);
     }
 }

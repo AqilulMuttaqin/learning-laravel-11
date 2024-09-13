@@ -13,6 +13,7 @@ Route::get('/', function () {
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/blog/{blog:slug}', [BlogController::class, 'show'])->name('blog.show');
 Route::get('/blog/author/{user}', [BlogController::class, 'filterAuthor'])->name('blog.filter-author');
+Route::get('/blog/criteria/{criteria}', [BlogController::class, 'filterCriteria'])->name('blog.filter-criteria');
 
 Route::get('/about', function () {
     return view('about.index', [
