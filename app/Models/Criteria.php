@@ -13,7 +13,8 @@ class Criteria extends Model
     protected $table = 'criterias';
 
     protected $fillable = [
-        'criteria'
+        'criteria',
+        'c_slug',
     ];
 
     public function blogs(): HasMany

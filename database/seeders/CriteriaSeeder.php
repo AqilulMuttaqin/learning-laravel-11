@@ -14,11 +14,11 @@ class CriteriaSeeder extends Seeder
     public function run(): void
     {
         $data = [
-            ['criteria' => 'Tech'],
-            ['criteria' => 'Health'],
-            ['criteria' => 'Business'],
-            ['criteria' => 'Education'],
-            ['criteria' => 'Entertainment'],
+            ['criteria' => 'Tech', 'c_slug' => 'tech'],
+            ['criteria' => 'Health', 'c_slug' => 'helath'],
+            ['criteria' => 'Business', 'c_slug' => 'business'],
+            ['criteria' => 'Education', 'c_slug' => 'education'],
+            ['criteria' => 'Entertainment', 'c_slug' => 'entertainment'],
         ];
 
         Criteria::insert($data);

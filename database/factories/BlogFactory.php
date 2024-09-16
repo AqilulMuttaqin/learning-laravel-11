@@ -20,10 +20,14 @@ class BlogFactory extends Factory
     public function definition(): array
     {
         $title = fake()->sentence();
+        $paragraphs = collect(range(1, 5))->map(function () {
+            return fake()->sentences(5, true);
+        })->implode("\n\n");
+        
         return [
             'title' => $title,
             'slug' => Str::slug($title),
-            'body' => fake()->paragraphs(5, true),
+            'body' => $paragraphs,
             'author_id' => User::inRandomOrder()->first()->id,
             'criteria_id' => Criteria::inRandomOrder()->first()->id,
         ];

@@ -3,14 +3,14 @@
 @section('content')
     <article class="py-4 border-bottom">
         <h2>{{ $blog->title }}</h2>
-        <p class="text-secondary">
+        <p>
             By
-            <a href="{{ route('blog.filter-author', $blog->author_id) }}"
+            <a href="{{ route('blog.filter-author', $blog->users->username) }}"
                 class="link-underline-secondary link-underline-opacity-0 link-underline-opacity-100-hover text-secondary">
                 {{ $blog->users->name }}
             </a>
             In
-            <a href="{{ route('blog.filter-criteria', $blog->criteria_id) }}"
+            <a href="{{ route('blog.filter-criteria', $blog->criterias->c_slug) }}"
                 class="link-underline-secondary link-underline-opacity-0 link-underline-opacity-100-hover text-secondary">
                 {{ $blog->criterias->criteria }}
             </a>
