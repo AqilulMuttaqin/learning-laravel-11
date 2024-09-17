@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
-use App\Models\Criteria;
+use App\Models\Category;
 use App\Models\User;
 
 class BlogController extends Controller
 {
     public function index()
     {
-        $blogs = Blog::with('users', 'criterias')->get();
+        $blogs = Blog::with('users', 'categories')->get();
 
         return view('blog.index', [
             'title' => 'Blog',
@@ -32,17 +32,19 @@ class BlogController extends Controller
 
     public function filterAuthor(User $user)
     {
+        $blogs = $user->blogs->load('users', 'categories');
         return view('blog.index', [
             'title' => 'Blog by ' . $user->name,
-            'blogs' => $user->blogs
+            'blogs' => $blogs
         ]);
     }
 
-    public function filterCriteria(Criteria $criteria)
+    public function filterCategory(Category $category)
     {
+        $blogs = $category->blogs->load('users', 'categories');
         return view('blog.index', [
-            'title' => 'Blog in ' .$criteria->criteria,
-            'blogs' => $criteria->blogs
+            'title' => 'Blog in ' .$category->name,
+            'blogs' => $blogs
         ]);
     }
 }

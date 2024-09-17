@@ -6,19 +6,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Criteria extends Model
+class Category extends Model
 {
     use HasFactory;
 
-    protected $table = 'criterias';
+    protected $table = 'categories';
 
     protected $fillable = [
-        'criteria',
-        'c_slug',
+        'name',
+        'slug',
     ];
 
     public function blogs(): HasMany
     {
-        return $this->hasMany(Blog::class, 'criteria_id');
+        return $this->hasMany(Blog::class, 'category_id');
     }
 }

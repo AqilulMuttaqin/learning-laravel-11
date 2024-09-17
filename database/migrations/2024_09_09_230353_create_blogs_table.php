@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->text('body');
             $table->foreignId('author_id')->constrained('users');
-            $table->foreignId('criteria_id')->constrained('criterias');
+            $table->foreignId('category_id')->constrained('categories');
             $table->timestamps();
         });
     }

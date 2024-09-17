@@ -10,9 +10,9 @@
                 {{ $blog->users->name }}
             </a>
             In
-            <a href="{{ route('blog.filter-criteria', $blog->criterias->c_slug) }}"
+            <a href="{{ route('blog.filter-category', $blog->categories->slug) }}"
                 class="link-underline-secondary link-underline-opacity-0 link-underline-opacity-100-hover text-secondary">
-                {{ $blog->criterias->criteria }}
+                {{ $blog->categories->name }}
             </a>
             | {{ $blog->created_at->diffForHumans() }}
         </p>

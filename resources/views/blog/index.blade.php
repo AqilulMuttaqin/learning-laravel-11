@@ -14,14 +14,14 @@
                     {{ $blog->users->name }}
                 </a>
                 In
-                <a href="{{ route('blog.filter-criteria', $blog->criterias->c_slug) }}"
+                <a href="{{ route('blog.filter-category', $blog->categories->slug) }}"
                     class="link-underline-secondary link-underline-opacity-0 link-underline-opacity-100-hover text-secondary">
-                    {{ $blog->criterias->criteria }}
+                    {{ $blog->categories->name }}
                 </a>
                 | {{ $blog->created_at->diffForHumans() }}
             </p>
             <p>{{ Str::limit($blog->body, 200) }}</p>
-            <a href="{{ route('blog.show', $blog->slug) }}" class="link-underline link-underline-opacity-0">Read More
+            <a href="{{ route('blog.show', $blog->slug) }}" class="link-underline link-underline-opacity-0">Read more
                 &raquo;</a>
         </article>
     @endforeach
