@@ -10,7 +10,7 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $blogs = Blog::with('users', 'categories')->get();
+        $blogs = Blog::latest()->get();
 
         return view('blog.index', [
             'title' => 'Blog',
@@ -32,19 +32,25 @@ class BlogController extends Controller
 
     public function filterAuthor(User $user)
     {
-        $blogs = $user->blogs->load('users', 'categories');
+        if (!$user) {
+            abort(404);
+        }
+
         return view('blog.index', [
             'title' => 'Blog by ' . $user->name,
-            'blogs' => $blogs
+            'blogs' => $user->blogs
         ]);
     }
 
     public function filterCategory(Category $category)
     {
-        $blogs = $category->blogs->load('users', 'categories');
+        if (!$category) {
+            abort(404);
+        }
+        
         return view('blog.index', [
             'title' => 'Blog in ' .$category->name,
-            'blogs' => $blogs
+            'blogs' => $category->blogs
         ]);
     }
 }

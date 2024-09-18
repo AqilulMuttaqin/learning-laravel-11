@@ -20,6 +20,11 @@ class Blog extends Model
         'criteria_id'
     ];
 
+    protected $with = [
+        'users',
+        'categories'
+    ];
+
     public function users(): BelongsTo
     {
         return $this->belongsTo(User::class, 'author_id');
