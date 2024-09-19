@@ -9,11 +9,11 @@
                     <div class="d-flex align-items-center my-4">
                         <img src="{{ asset('assets/images/author.jpeg') }}" alt="author" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
                         <div class="ms-3">
-                            <a class="link-underline-dark link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2" href="{{ route('blog.filter-author', $blog->users->username) }}">
+                            <a class="link-underline-dark link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2" href="{{ route('blog') }}?author={{ $blog->users->username }}">
                                 <h4 class="text-dark">{{ $blog->users->name }}</h4>
                             </a>
                             <p class="text-secondary">
-                                <a class="link-underline link-underline-opacity-0" href="{{ route('blog.filter-category', $blog->categories->slug) }}">
+                                <a class="link-underline link-underline-opacity-0" href="{{ route('blog') }}?category={{ $blog->categories->slug }}">
                                     <span class="badge text-dark bg-opacity-25 fw-normal
                                         @if($blog->categories->name == 'Tech') bg-primary
                                         @elseif($blog->categories->name == 'Health') bg-secondary
