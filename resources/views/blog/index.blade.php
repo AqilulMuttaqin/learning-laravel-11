@@ -24,7 +24,8 @@
             </div>
         </form>
     </div>
-    <div class="row">
+    {{ $blogs->links() }}
+    <div class="row my-2">
         @forelse ($blogs as $blog)
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4">
                 <div class="card border-0 shadow-sm h-100">
@@ -72,4 +73,5 @@
             <a href="{{ route('blog') }}" class="link-underline link-underline-opacity-0">&laquo; Back to all blog</a>
         @endforelse
     </div>
+    {{ $blogs->links() }}
 @endsection
